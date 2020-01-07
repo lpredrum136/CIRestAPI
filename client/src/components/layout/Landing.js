@@ -1,31 +1,20 @@
-import React, { Fragment, useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { getPosts } from "../../actions/postActions";
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Landing = ({ getPosts, myPost }) => {
-	useEffect(() => {
-		getPosts();
-	}, [getPosts]);
-
-	const { posts } = myPost;
-
+const Landing = props => {
 	return (
 		<Fragment>
-			{posts.map(post => (
-				<p key={post.id}>
-					{post.id} - {post.category_id}: {post.title}==={post.body}
-				</p>
-			))}
+			<h1>Homepage</h1>
+			<ul>
+				<li>
+					<Link to='/posts'>Posts</Link>
+				</li>
+			</ul>
 		</Fragment>
 	);
 };
 
-Landing.propTypes = {
-	getPosts: PropTypes.func.isRequired,
-	myPost: PropTypes.object.isRequired
-};
+Landing.propTypes = {};
 
-const mapStateToProps = state => ({ myPost: state.myPost });
-
-export default connect(mapStateToProps, { getPosts })(Landing);
+export default Landing;

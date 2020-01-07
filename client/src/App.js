@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import myStore from "./store";
-import Routes from "./components/routing/Routes";
+import React, { Fragment, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import myStore from './store';
+import Routes from './components/routing/Routes';
 
-import Landing from "./components/layout/Landing";
+import Landing from './components/layout/Landing';
 
-import "./App.css";
+import './App.css';
 
 const App = () => {
 	return (
@@ -14,7 +14,8 @@ const App = () => {
 			<Router>
 				<Fragment>
 					<Switch>
-						<Route exact path="/" component={Landing} />
+						<Route exact path='/' component={Landing} />
+						<Route component={Routes} />
 					</Switch>
 				</Fragment>
 			</Router>
